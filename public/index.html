@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKI Demonstration System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>🔐 PKI System</h2>
+    <p class="subtitle">Certificate Authority</p>
+
+    <a href="#dashboard">Dashboard</a>
+    <a href="#generate">Generate Certificate</a>
+    <a href="#verify">Verify Certificate</a>
+    <a href="#revoke">Revoke Certificate</a>
+</div>
+
+<main>
+    <header>
+        <div>
+            <h1>PKI Dashboard</h1>
+            <p>Public Key Infrastructure Management System</p>
+        </div>
+        <span class="status">● System Online</span>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Total Certificates</h3>
+            <h1 id="total">0</h1>
+        </div>
+        <div class="card">
+            <h3>Valid Certificates</h3>
+            <h1 id="valid">0</h1>
+        </div>
+        <div class="card">
+            <h3>Revoked Certificates</h3>
+            <h1 id="revoked">0</h1>
+        </div>
+    </section>
+
+    <section class="panel" id="generate">
+        <h2>Generate Digital Certificate</h2>
+        <form id="certificateForm">
+            <input id="name" placeholder="Common Name" required>
+            <input id="email" type="email" placeholder="Email Address" required>
+            <input id="organization" placeholder="Organization">
+            <button type="submit">Generate Certificate</button>
+        </form>
+        <p id="generateMessage"></p>
+    </section>
+
+    <section class="panel" id="verify">
+        <h2>Verify Certificate</h2>
+        <input id="verifyId" placeholder="Enter Certificate ID">
+        <button onclick="verifyCertificate()">Verify</button>
+        <p id="verifyMessage"></p>
+    </section>
+
+    <section class="panel" id="revoke">
+        <h2>Revoke Certificate</h2>
+        <input id="revokeId" placeholder="Enter Certificate ID">
+        <button class="danger" onclick="revokeCertificate()">Revoke</button>
+        <p id="revokeMessage"></p>
+    </section>
+
+    <footer>PKI Demonstration Project | Cyber Security</footer>
+</main>
+
+<script src="js/api-config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

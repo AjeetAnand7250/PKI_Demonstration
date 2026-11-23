@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: pki-demonstration-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    disk:
+      name: pki-certificate-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PKI_STORAGE_DIR
+        value: /var/data
+      - key: CA_KEY_PATH
+        value: /etc/secrets/ca-key.pem
+      - key: CA_CERT_PATH
+        value: /etc/secrets/ca-cert.pem
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false

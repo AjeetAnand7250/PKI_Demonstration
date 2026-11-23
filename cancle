@@ -1,0 +1,9 @@
+cat > .env <<'EOF'
+PORT=3000
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=Ajeet@12345
+DB_NAME=pki_database
+BDB_PORT=3306
+EOF
